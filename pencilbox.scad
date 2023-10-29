@@ -9,6 +9,7 @@ bottomHeight = 2.886;
 hexagonStarAllowance = 0.2;
 
 v2colouredPartOffset = 5;
+small = 0.001;
 
 
 module hexagon(r, h) rotate_extrude($fn=6) square([r, h]);
@@ -22,11 +23,11 @@ module hexagonStar(r, h) linear_extrude(h) polygon([
     ]
 ]);
 
-module cylinderWithCone(r, cylinderHeight, coneAngle) rotate_extrude($fn=120) polygon([
+module cylinderWithCone(r, cylinderHeight, coneAngle, coneScale=1) rotate_extrude($fn=120) polygon([
     [0, 0],
     [r, 0],
     [r, cylinderHeight],
-    [0, cylinderHeight + r * tan(coneAngle)]
+    [0, cylinderHeight + r * tan(coneAngle) * coneScale]
 ]);
 
 module cup() // render(convexity=4)
@@ -45,21 +46,28 @@ intersection() {
     cylinderWithCone(radius, cutHeight, cutAngle - 90);
 };
 
-small = 0.001;
+faceDistance = radius * sqrt(3) / 2;
 
 module colouredPart(isCut = false) // render(convexity=4)
 difference() {
-    for (angle=[0:60:360]) rotate([0, 0, angle])
-        hull() {
-            translate([0, 0, (isCut ? -totalHeight / 4 : small )]) sphere(small);
-            intersection() {
-                cylinderWithCone(radius, cutHeight, cutAngle - 90);
-                translate([0, radius * sqrt(3) / 2, 0])
-                    rotate([90, 0, 0])
-                        translate([0, totalHeight / 2, 0])
-                            linear_extrude(small, scale=[0, 0]) square([radius, totalHeight], center=true);
+    intersection() {
+        hexagon(radius, totalHeight);
+        for (angle=[0:60:360]) rotate([0, 0, angle])
+            hull() for (i=[0, outerThickness * 2]) translate([0, -i * outerThickness * 2, 0]) {
+                translate([0, faceDistance - small, small]) sphere(small);
+                intersection() {
+                    cylinderWithCone(
+                        radius,
+                        cutHeight - outerThickness * 9 * i,
+                        cutAngle - 90, coneScale=(i ? 3 : 1),
+                    );
+                    translate([0, faceDistance, 0])
+                        rotate([90, 0, 0])
+                            translate([0, totalHeight / 2, 0])
+                                linear_extrude(small, scale=[0, 0]) square([radius, totalHeight], center=true);
+                };
             };
-        };
+    };
     if (isCut) hexagon(radius - outerThickness, totalHeight);
     if (!isCut) hexagonStar(radius - outerThickness, totalHeight);
 };
@@ -72,7 +80,8 @@ module colouredPartV2(isCut = false) {
 
 module pencilBoxV1inner() difference() { cup(); colouredPart(isCut=true); }
 module pencilBoxV1outer() colouredPart();
-module pencilBoxV2inner() difference() { cup(); colouredPartV2(isCut=true); }
+module pencilBoxV2inner() translate([0, 0, totalHeight]) rotate([0, 180, 0])
+    difference() { cup(); colouredPartV2(isCut=true); }
 module pencilBoxV2outer() colouredPartV2();
 
 
