@@ -8,6 +8,8 @@ innerRoundingRadius = 3;
 bottomHeight = 2.886;
 hexagonStarAllowance = 0.2;
 
+v2colouredPartOffset = 5;
+
 
 module hexagon(r, h) rotate_extrude($fn=6) square([r, h]);
 module hexagonStar(r, h) linear_extrude(h) polygon([
@@ -62,10 +64,20 @@ difference() {
     if (!isCut) hexagonStar(radius - outerThickness, totalHeight);
 };
 
+module v2CutCylinder() linear_extrude(cutHeight - v2colouredPartOffset) circle(radius * 2);
+module colouredPartV2(isCut = false) {
+    intersection() { cup(); v2CutCylinder(); }
+    difference() { colouredPart(isCut=isCut); v2CutCylinder(); }
+}
+
 module pencilBoxV1inner() difference() { cup(); colouredPart(isCut=true); }
-module pencilBoxV1outer()  colouredPart();
+module pencilBoxV1outer() colouredPart();
+module pencilBoxV2inner() difference() { cup(); colouredPartV2(isCut=true); }
+module pencilBoxV2outer() colouredPartV2();
 
 
 echo("VARIANT", variant);
 if (variant == "v1inner" ) pencilBoxV1inner();
 if (variant == "v1outer" ) pencilBoxV1outer();
+if (variant == "v2inner" ) pencilBoxV2inner();
+if (variant == "v2outer" ) pencilBoxV2outer();
