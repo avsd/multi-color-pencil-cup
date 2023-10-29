@@ -3,11 +3,11 @@ innerRadius = 61 / 2;
 outerThickness = 1.8;
 totalHeight = 104;
 cutHeight = 63;
-cutHeightStep = 2;
+cutHeightStep = 0.5;
 cutAngle = 170;
 innerRoundingRadius = 3;
-bottomHeight = 2.886;
-hexagonStarAllowance = 0.2;
+bottomHeight = 1.6; // 2.886;
+hexagonStarAllowance = 0.3;
 
 v2colouredPartOffset = 5;
 small = 0.001;
@@ -71,10 +71,6 @@ module colouredPart(isCut = false) union() {
             for (angle=[0:60:360]) rotate([0, 0, angle])
                 hull() for (i=[0, outerThickness * 2]) translate([0, -i * outerThickness * 2, 0]) {
                     translate([0, faceDistance - small, small]) dot();
-                    translate([radius / 2 - i * outerThickness * 4, faceDistance - small, small]) dot();
-                    translate([-radius / 2 + i * outerThickness * 4, faceDistance - small, small]) dot();
-                    translate([radius / 2 - i * outerThickness * 4, faceDistance - small, cutHeight - small]) dot();
-                    translate([-radius / 2 + i * outerThickness * 4, faceDistance - small, cutHeight - small]) dot();
                     intersection() {
                         cylinderWithCone(
                             radius,
