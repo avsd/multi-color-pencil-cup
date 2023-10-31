@@ -18,15 +18,24 @@ so it can be printed in two parts, and no gluing is required.
 
 ## Variants
 
-The model comes in two variants:
+The model comes in two variants. Both look identical from the outside.
+You may choose one or the other depending on which filament you prefer to save.
 
-* pencil-cup-v1, with larger "wooden" part and smaller "color" part,
-with the inner part completely "wooden", and a thin "color" shell wrapping it;
-* pencil-cup-v2, with larger "color" part and smaller "wooden" part, with "wooden"
+### Variant 1
+
+pencil-cup-v1, with larger "wooden" part and smaller "color" part,
+with the inner part completely "wooden", and a thin "color" shell wrapping it:
+
+<script src="https://embed.github.com/view/3d/avsd/multi-color-pencil-cup/master/pencil-cup-v1-color.stl"></script>
+<script src="https://embed.github.com/view/3d/avsd/multi-color-pencil-cup/master/pencil-cup-v1-wood.stl"></script>
+
+### Variant 2
+
+pencil-cup-v2, with larger "color" part and smaller "wooden" part, with "wooden"
 top fittin on top of the "color" bottom.
 
-Both models look identical from the outside. You may choose one or the other
-depending on which filament you prefer to save.
+<script src="https://embed.github.com/view/3d/avsd/multi-color-pencil-cup/master/pencil-cup-v2-color.stl"></script>
+<script src="https://embed.github.com/view/3d/avsd/multi-color-pencil-cup/master/pencil-cup-v2-wood.stl"></script>
 
 ## Print settings
 
