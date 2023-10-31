@@ -43,3 +43,7 @@ by [Mosaic Manufacturing](https://www.mosaicmfg.com/),
 used under [CC BY 4.0][cc-by].
 
 Licensed under [CC BY 4.0][cc-by] by [David Avsajanishvili](https://davidavs.com).
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
