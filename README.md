@@ -23,19 +23,17 @@ You may choose one or the other depending on which filament you prefer to save.
 
 ### Variant 1
 
-pencil-cup-v1, with larger "wooden" part and smaller "color" part,
-with the inner part completely "wooden", and a thin "color" shell wrapping it:
+* larger ["wooden" part](./pencil-cup-v1-wood.stl)
+* smaller ["color" part](./pencil-cup-v1-color.stl)
 
-<script src="https://embed.github.com/view/3d/avsd/multi-color-pencil-cup/master/pencil-cup-v1-color.stl"></script>
-<script src="https://embed.github.com/view/3d/avsd/multi-color-pencil-cup/master/pencil-cup-v1-wood.stl"></script>
+with the inner part completely "wooden", and a thin "color" shell wrapping it:
 
 ### Variant 2
 
-pencil-cup-v2, with larger "color" part and smaller "wooden" part, with "wooden"
-top fittin on top of the "color" bottom.
+* smaller ["wooden" part](./pencil-cup-v2-wood.stl)
+* larger ["color" part](./pencil-cup-v2-color.stl)
 
-<script src="https://embed.github.com/view/3d/avsd/multi-color-pencil-cup/master/pencil-cup-v2-color.stl"></script>
-<script src="https://embed.github.com/view/3d/avsd/multi-color-pencil-cup/master/pencil-cup-v2-wood.stl"></script>
+with "wooden" top fittin on top of the "color" bottom.
 
 ## Print settings
 
