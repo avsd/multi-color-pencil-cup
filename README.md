@@ -2,7 +2,7 @@
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
-![Photo](./photo.jpg)
+![Photo](./photo.jpg | height=600)
 
 Pencil for pencils! A realistically-looking pencil-cup,
 especially if printed using wood filament.
