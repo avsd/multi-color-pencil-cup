@@ -1,4 +1,4 @@
-# Multi-Color Pencil Cup, glueless remix
+# Multi-Color Pencil Cup, two-part remix
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
@@ -12,7 +12,7 @@ Adaptation of the original
 model, with following changes:
 
 * Changed the way parts of the model are connected: they fit one into the other,
-so, no gluing is required.
+so it can be printed in two parts, and no gluing is required.
 * Reduced bottom thickness, so that it could be printed without infill.
 * Converted to OpenSCAD format, making it customizable.
 
